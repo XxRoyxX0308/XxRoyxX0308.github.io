@@ -13,7 +13,8 @@ body{
 }
 
 #challenge{
-  font-size: 8rem;
+  text-align: center;
+  font-size: 6rem;
   padding: 10%;
 }
 
