@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dream Space — Showcase</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="showcase">
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="brand">Dream Space</a>
+      <div class="navlinks">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="gallery.html" class="nav-item">Gallery</a>
+        <a href="showcase.html" class="nav-item">Showcase</a>
+        <a href="contact.html" class="nav-item">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="showcase-section">
+      <h2>Table Styler</h2>
+      <div class="controls">
+        <button onclick="setTableWidth(200)">Width 200px</button>
+        <button onclick="setTableWidth(500)">Width 500px</button>
+        <button onclick="setBorderSpacing(1)">Border/Spacing 1px</button>
+        <button onclick="setBorderSpacing(10)">Border/Spacing 10px</button>
+        <button onclick="setBorderSpacing(20)">Border/Spacing 20px</button>
+        <button onclick="setTableBg('#234 ')">BG Color</button>
+        <button onclick="resetTable()">Reset</button>
+      </div>
+
+      <table id="demoTable">
+        <thead>
+          <tr><th>H1</th><th>H2</th><th>H3</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>A1</td><td>B1</td><td>C1</td></tr>
+          <tr><td>A2</td><td>B2</td><td>C2</td></tr>
+          <tr><td>A3</td><td>B3</td><td>C3</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="showcase-section">
+      <h2>Polaroid Image Switcher</h2>
+      <div class="polaroid">
+        <img id="polaroidImg" src="imgs/poly1.jpg" alt="polaroid">
+        <div class="caption" id="polaroidCounter">Image 1 of 5</div>
+      </div>
+      <div class="polaroid-controls">
+        <button onclick="prevImg()">Previous</button>
+        <button onclick="nextImg()">Next</button>
+      </div>
+    </section>
+
+    <section class="showcase-section">
+      <h2>Canvas: Dreamscape</h2>
+      <canvas id="dreamCanvas" width="800" height="300"></canvas>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

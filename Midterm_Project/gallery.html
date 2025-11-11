@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dream Space — Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="gallery">
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="brand">Dream Space</a>
+      <div class="navlinks">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="gallery.html" class="nav-item">Gallery</a>
+        <a href="showcase.html" class="nav-item">Showcase</a>
+        <a href="contact.html" class="nav-item">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container gallery-grid">
+    <figure class="hover-card">
+      <!-- two PNGs stacked: base.png (visible) and overlay.png (fades in) -->
+      <img src="base1.png" alt="base image" class="base-img">
+      <img src="overlay1.png" alt="overlay image" class="overlay-img">
+      <figcaption class="overlay-text">Long Juni</figcaption>
+    </figure>
+
+    <!-- Image with an image-map polygon linked to the About page -->
+    <figure class="hover-card">
+      <img src="overlay1.png" usemap="#faceMap" alt="clickable portrait" class="base-img">
+      <map name="faceMap">
+        <!-- polygon coords example: adjust to match your image -->
+        <area shape="circle" coords="235,111,45" href="about.html" alt="Go to About">
+      </map>
+    </figure>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
