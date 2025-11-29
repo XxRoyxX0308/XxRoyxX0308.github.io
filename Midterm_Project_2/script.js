@@ -604,7 +604,7 @@ function drawReady() {
     ctx.shadowColor = "white";
     ctx.font = "30px Orbitron";
     if (Math.floor(Date.now() / 500) % 2 === 0) {
-        ctx.fillText("PRESS [INIT]", WIDTH/2, HEIGHT/2);
+        ctx.fillText("PRESS [START]", WIDTH/2, HEIGHT/2);
     }
     ctx.font = "14px Orbitron";
     ctx.fillStyle = "#00f3ff";
