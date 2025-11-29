@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER DEFENDER // 2077</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="scanline"></div>
+
+    <div id="main-game-wrapper">
+        
+        <div id="game-container">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+        </div>
+
+        <div class="ui-panel">
+            <div class="btn-group left-group">
+                <button id="btn-start">START</button>
+                <button id="btn-pause">PAUSE</button>
+                <button id="btn-reset">RESET</button>
+            </div>
+            
+            <div class="info-group">
+                <div class="info-item">STATUS: <span id="state-display">OFFLINE</span></div>
+                <div class="info-item">SCORE: <span id="score-display">0</span></div>
+                <div class="info-item">INTEGRITY: <span id="lives-display">100%</span></div>
+                <div class="info-item">SPEED: x<span id="speed-display">1.0</span></div>
+            </div>
+
+            <div class="btn-group right-group">
+                <button id="btn-slower">SPEED -</button>
+                <button id="btn-faster">SPEED +</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

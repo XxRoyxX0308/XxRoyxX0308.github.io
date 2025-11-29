@@ -1,0 +1,180 @@
+/* Cyberpunk Palette: #00f3ff (Cyan), #ff00ff (Magenta), #ffee00 (Yellow) */
+
+body {
+    margin: 0;
+    background-color: #050505;
+    color: #e0e0e0;
+    font-family: 'Orbitron', sans-serif;
+    /* 關鍵修改：確保 body 佔滿視窗且不產生捲軸 */
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 給四周留一點呼吸空間 */
+    padding: 20px; 
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+
+/* 螢幕掃描線特效 */
+.scanline {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 50%, rgba(0,0,0,0.05) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* 新增：主遊戲包裝器 */
+#main-game-wrapper {
+    /* 限制最大寬度符合遊戲設計 */
+    width: 100%;
+    max-width: 800px;
+    /* 關鍵：高度佔滿可用空間，但絕不超過 100vh (扣掉 body padding) */
+    height: 100%;
+    max-height: 100%;
+    
+    display: flex;
+    flex-direction: column; /* 垂直排列 Canvas 和 UI Bar */
+    
+    /* 雙色霓虹發光邊框移到最外層 */
+    box-shadow: 0 0 20px #00f3ff, 0 0 40px #ff00ff; 
+    border: 2px solid #00f3ff;
+    background: rgba(10, 10, 10, 0.9);
+}
+
+/* Canvas 容器 */
+#game-container {
+    position: relative;
+    /* 關鍵：佔用扣除 UI Bar 後的所有剩餘高度 */
+    flex: 1; 
+    width: 100%;
+    /* 確保內容物居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-bottom: 2px solid #ff00ff; /* 分隔線 */
+}
+
+canvas {
+    display: block;
+    background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
+    /* 關鍵：讓 Canvas 在容器內保持比例縮放，不會變形也不會溢出 */
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+}
+
+/* 底部 UI 面板 */
+.ui-panel {
+    width: 100%;
+    /* 關鍵：設定固定高度，確保它不會忽大忽小 */
+    height: 70px; 
+    min-height: 70px;
+    
+    padding: 0 15px; /* 只留左右 padding */
+    box-sizing: border-box;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* 垂直居中 */
+    /* 關鍵：禁止內容換行，解決對齊問題 */
+    flex-wrap: nowrap; 
+    
+    background: rgba(20, 20, 20, 1);
+    box-shadow: inset 0 0 20px rgba(255, 0, 255, 0.2);
+    font-size: 12px; /* 稍微縮小字體以防擁擠 */
+}
+
+/* 按鈕群組 */
+.btn-group {
+    display: flex;
+    gap: 8px; /* 按鈕間距 */
+    align-items: center;
+    flex-wrap: nowrap; /* 禁止按鈕換行 */
+}
+
+/* 中間資訊群組 */
+.info-group {
+    display: flex;
+    gap: 15px;
+    letter-spacing: 1px;
+    /* 確保資訊在小螢幕時也能擠在一起而不換行 */
+    flex-shrink: 1; 
+    justify-content: center;
+    white-space: nowrap; /* 防止文字換行 */
+}
+
+.info-item {
+    color: #888;
+    display: flex;
+    flex-direction: column; /* 把標籤和數值上下疊放，節省橫向空間 */
+    align-items: center;
+    font-size: 10px;
+}
+
+.info-item span {
+    font-weight: 700;
+    color: #00f3ff;
+    text-shadow: 0 0 5px #00f3ff;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+/* 按鈕樣式 */
+button {
+    background: rgba(0, 243, 255, 0.1);
+    color: #00f3ff;
+    border: 1px solid #00f3ff;
+    padding: 6px 10px; /* 稍微縮小 padding */
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px; /* 稍微縮小字體 */
+    transition: all 0.2s;
+    letter-spacing: 1px;
+    white-space: nowrap; /* 防止按鈕文字換行 */
+    min-width: 60px; /* 確保按鈕有最小寬度 */
+    text-align: center;
+}
+
+button:hover {
+    background: rgba(0, 243, 255, 0.3);
+    box-shadow: 0 0 15px #00f3ff;
+    text-shadow: 0 0 5px #00f3ff;
+}
+
+button:active {
+    background: #00f3ff;
+    color: #000;
+}
+
+/* Reset 按鈕特殊色 */
+#btn-reset {
+    color: #ff00ff;
+    border-color: #ff00ff;
+    background: rgba(255, 0, 255, 0.1);
+}
+#btn-reset:hover {
+    background: rgba(255, 0, 255, 0.3);
+    box-shadow: 0 0 15px #ff00ff;
+}
+
+/* 狀態特殊色 */
+#state-display {
+    color: #ffee00;
+    text-shadow: 0 0 5px #ffee00;
+}
+
+/* 針對特別矮的螢幕做一點優化 */
+@media (max-height: 600px) {
+    body { padding: 5px; }
+    .ui-panel { height: 60px; min-height: 60px; }
+    .info-item span { font-size: 12px; }
+    button { padding: 4px 8px; font-size: 10px; }
+}
